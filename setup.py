@@ -20,8 +20,8 @@ def read_requirements(path):
     """Return a list of requirements from a text file"""
     return [
         line.strip()
-        for line in read(path).split("\n")
-        if not line.startswith(("#", "git+", '"', '-'))
+        for line in read(path).split('\n')
+        if not line.startswith(('#', 'git+', '"', '-'))
     ]
 
 
@@ -38,9 +38,9 @@ setup(
             'dundie = dundie.__main__:main'
         ]
     },
-    install_requires=read_requirements("requirements.txt"),
+    install_requires=read_requirements('requirements.txt'),
     extras_require={
-        "test": read_requirements("requirements.test.txt"),
-        "dev": read_requirements("requirements.dev.txt")
+        'test': read_requirements('requirements.test.txt'),
+        'dev': read_requirements("requirements.dev.txt")
     }
 )

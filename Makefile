@@ -11,8 +11,12 @@ help: ## This help.
 install:  ## Install in development mode.
 	@.venv/bin/python -m pip install -e .[dev]
 
-venv:  ## Create a virtualenv ir it doesn't exists.
-	@.venv/bin/python -m venv .venv
+venv:  ## Create a virtualenv if it doesn't exists.
+	python -m venv .venv
 
-ipython:  ## Starts ipython
+ipython:  ## Starts ipython.
 	@.venv/bin/ipython
+
+
+test:  ## Execute all tests.
+	@.venv/bin/pytest -v
