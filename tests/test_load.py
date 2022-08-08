@@ -1,4 +1,5 @@
 import pytest
+
 from dundie.core import load
 from tests.constants import PEOPLE_FILE
 
