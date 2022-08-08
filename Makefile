@@ -19,4 +19,4 @@ ipython:  ## Starts ipython.
 
 
 test:  ## Execute all tests.
-	@.venv/bin/pytest -v
+	@.venv/bin/pytest
