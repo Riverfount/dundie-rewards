@@ -5,3 +5,11 @@ testpaths = [
     "tests",
     "integration",
 ]
+
+[tool.flake8]
+exclude = ['.venv', 'build']
+max-line-length = 120
+
+[tool.isort]
+src_paths = ['dundie', 'tests', 'integration']
+multi_line_output = 3

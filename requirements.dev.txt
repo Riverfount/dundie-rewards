@@ -3,5 +3,10 @@ ipython
 ipdb
 pudb
 
+# Code Quality
+flake8==4.0.1
+pyproject-flake8
+isort
+
 # Install project as editable
 -e .
