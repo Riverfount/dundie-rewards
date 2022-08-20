@@ -1,0 +1,58 @@
+{
+    "people": {
+        "jim@dundlerwifflin.com": {
+            "name": "Jim Halpert",
+            "dept": "Sales",
+            "role": "Salesman"
+        },
+        "schrute@dundlerwifflin.com": {
+            "name": "Dwight Schrute",
+            "dept": "Sales",
+            "role": "Manager"
+        },
+        "glewis@dundlerwifflin.com": {
+            "name": "Gabe Lewins",
+            "dept": "C-Level",
+            "role": "CEO"
+        }
+    },
+    "balance": {
+        "jim@dundlerwifflin.com": 500,
+        "schrute@dundlerwifflin.com": 100,
+        "glewis@dundlerwifflin.com": 100
+    },
+    "movement": {
+        "jim@dundlerwifflin.com": [
+            {
+                "data": "2022-08-20T16:16:44.137327",
+                "actor": "system",
+                "value": 500
+            }
+        ],
+        "schrute@dundlerwifflin.com": [
+            {
+                "data": "2022-08-20T16:16:44.138902",
+                "actor": "system",
+                "value": 100
+            }
+        ],
+        "glewis@dundlerwifflin.com": [
+            {
+                "data": "2022-08-20T16:16:44.139140",
+                "actor": "system",
+                "value": 100
+            }
+        ]
+    },
+    "users": {
+        "jim@dundlerwifflin.com": {
+            "password": "xhNzmXEj"
+        },
+        "schrute@dundlerwifflin.com": {
+            "password": "uJkbaCwI"
+        },
+        "glewis@dundlerwifflin.com": {
+            "password": "nDKuzteJ"
+        }
+    }
+}
