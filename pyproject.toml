@@ -1,6 +1,6 @@
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q -vv"
+addopts = "-ra -q -vv --forked"
 testpaths = [
     "tests",
     "integration",
