@@ -18,21 +18,17 @@ click.rich_click.USE_RICH_MARKUP = True
 @click.group()
 @click.version_option(pkg_resources.get_distribution('dundie').version)
 def main():
-    """Dunder Mifflin Rewards System
-
-    This cli application controls DM rewards.
+    """Dunder Mifflin Rewards System.
+    This cli application controls Dunder Mifflin rewards.
+    - admins can load information to the people database and assign points.
+    - users can view reports and transfer points.
     """
 
 
 @main.command()
 @click.argument('filepath', type=click.Path(exists=True))
 def load(filepath):
-    """Loads the file to database.
-    ## Features
-    - Validantes data
-    - Pareses the file
-    - Load database
-    """
+    """Loads the file to the database."""
 
     table = Table(title='Dunder Mifflin Associantes')
     headers = ['name', 'dept.', 'role', 'created', 'e-mail']
@@ -51,7 +47,7 @@ def load(filepath):
 @click.option('--email', required=False)
 @click.option('--output', default=None)
 def show(output, **query):
-    """Shows information about users."""
+    """Shows information about user or dept."""
     result = core.read(**query)
     if output:
         with open(output, 'w') as output_file:
@@ -75,7 +71,7 @@ def show(output, **query):
 @click.option('--email', required=False)
 @click.pass_context
 def add(ctx, value, **query):
-    """Add points to users or departements."""
+    """Add points to the user or dept."""
     core.add(value, **query)
     ctx.invoke(show, **query)
 
@@ -86,6 +82,6 @@ def add(ctx, value, **query):
 @click.option('--email', required=False)
 @click.pass_context
 def remove(ctx, value, **query):
-    """Remove points to users or departements."""
+    """Removes points from the user or dept."""
     core.add(-value, **query)
     ctx.invoke(show, **query)
