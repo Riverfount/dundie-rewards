@@ -16,7 +16,7 @@ click.rich_click.USE_RICH_MARKUP = True
 
 
 @click.group()
-@click.version_option(pkg_resources.get_distribution('dundie').version)
+@click.version_option(pkg_resources.get_distribution('vm-dundie').version)
 def main():
     """Dunder Mifflin Rewards System.
     This cli application controls Dunder Mifflin rewards.

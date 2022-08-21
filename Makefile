@@ -1,7 +1,7 @@
 # HELP
 # This will output the help for each task
 # thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-.PHONY: help install venv ipython test pflake8 clean
+.PHONY: help install venv ipython test pflake8 clean lint build
 
 help: ## This help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -38,3 +38,9 @@ clean:  ## Clean unused files.
 	@rm -rf htmlcov
 	@rm -rf .tox/
 	@rm -rf docs/_build
+
+build:
+	@python setup.py sdist bdist_wheel
+
+publish-test:
+	@twine upload --repository testpypi dist/*
