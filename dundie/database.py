@@ -68,7 +68,7 @@ def add_movement(db, pk, value, actor='system'):
     movments = db['movement'].setdefault(pk, [])
     movments.append(
         {
-            'data': datetime.now().isoformat(),
+            'date': datetime.now().isoformat(),
             'actor': actor,
             'value': value
         }
