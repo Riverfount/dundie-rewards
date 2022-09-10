@@ -27,7 +27,7 @@ def load(filepath: str) -> ResultDict:
         log.error(str(e))
         raise e
     people = []
-    headers = ["name", "dept", "role", "email"]
+    headers = ["name", "dept", "role", "email", 'currency']
     with get_session() as session:
         for line in csv_data:
             person_data = dict(zip(headers, [item.strip() for item in line]))
