@@ -7,7 +7,7 @@ testpaths = [
 ]
 
 [tool.flake8]
-exclude = ['.venv', 'build']
+exclude = ['.venv', 'build', 'migrations']
 max-line-length = 120
 
 [tool.isort]
