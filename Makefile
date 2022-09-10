@@ -19,7 +19,7 @@ ipython:  ## Starts ipython.
 
 
 test:  ## Execute all tests.
-	@.venv/bin/pytest
+	@.venv/bin/pytest tests
 
 lint:  ## Execute a lint to code quality.
 	# @.venv/bin/mypy --ignore-missing-imports dundie

@@ -22,7 +22,7 @@ def main():
 
     This cli application controls Dunder Mifflin rewards.
 
-    - admins can load information tot he people database and assign points.
+    - admins can load information to the people database and assign points.
     - users can view reports and transfer points.
 
     """
@@ -40,7 +40,7 @@ def load(filepath):
     - Loads to database
     """
     table = Table(title="Dunder Mifflin Associates")
-    headers = ["email", "name", "dept", "role", "created"]
+    headers = ["email", "name", "dept", "role", "currency", "created"]
     for header in headers:
         table.add_column(header, style="magenta")
 
@@ -71,6 +71,8 @@ def show(output, **query):
         table.add_column(key.title().replace("_", " "), style="magenta")
 
     for person in result:
+        person['value'] = f"{person['value']:.2f}"
+        person['balance'] = f"{person['balance']:.2f}"
         table.add_row(*[str(value) for value in person.values()])
 
     console = Console()

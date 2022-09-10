@@ -9,6 +9,7 @@ from dundie.database import get_session
 from dundie.models import Person
 from dundie.settings import DATEFMT
 from dundie.utils.db import add_movement, add_person
+from dundie.utils.exchange import get_rates
 from dundie.utils.logger import get_logger
 
 log = get_logger()
@@ -27,7 +28,7 @@ def load(filepath: str) -> ResultDict:
         log.error(str(e))
         raise e
     people = []
-    headers = ["name", "dept", "role", "email"]
+    headers = ["name", "dept", "role", "email", 'currency']
     with get_session() as session:
         for line in csv_data:
             person_data = dict(zip(headers, [item.strip() for item in line]))
@@ -57,14 +58,20 @@ def read(**query: Query) -> ResultDict:
         sql = sql.where(*query_statements)
 
     with get_session() as session:
+        currencies = session.exec(
+            select(Person.currency).distinct(Person.currency)
+        )
+        rates = get_rates(currencies)
         results = session.exec(sql)
         for person in results:
+            total = rates[person.currency].value * person.balance[0].value
             return_data.append(
                 {
                     "email": person.email,
                     "balance": person.balance[0].value,
                     "last_movement": person.movement[-1].date.strftime(DATEFMT),
                     **person.dict(exclude={"id"}),
+                    **{'value': total}
                 }
             )
     return return_data
