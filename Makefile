@@ -26,7 +26,7 @@ lint:  ## Execute a lint to code quality.
 	@.venv/bin/pflake8
 
 fmt:  ## Format our imports with isort
-	@.venv/bin/isort -m 3 dundie tests integration
+	@.venv/bin/isort -m 3 dundie tests
 
 clean:  ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;

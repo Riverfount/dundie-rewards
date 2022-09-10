@@ -2,7 +2,7 @@ import pytest
 from click.testing import CliRunner
 
 from dundie.cli import load, main
-from integration.constants import PEOPLE_FILE
+from tests.constants import PEOPLE_FILE
 
 cmd = CliRunner()
 

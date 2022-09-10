@@ -4,8 +4,7 @@ from dundie.core import add, load, read
 from dundie.database import get_session
 from dundie.models import Person
 from dundie.utils.db import add_person
-
-from .constants import PEOPLE_FILE
+from tests.constants import PEOPLE_FILE
 
 
 @pytest.mark.unit

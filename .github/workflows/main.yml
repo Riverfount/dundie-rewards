@@ -46,4 +46,4 @@ jobs:
       - name: Install Project
         run: pip install '.[test]'
       - name: Run Tests
-        run: pytest -vv tests integration
+        run: pytest -vv tests
