@@ -8,9 +8,15 @@ flake8==4.0.1
 pyproject-flake8
 isort
 
+# docs
+mkdocs
 
 # build
 wheel
-twine
+
+# typing
+mypy
+types-setuptools
+
 # Install project as editable
 -e .
