@@ -25,9 +25,11 @@ jobs:
         with:
           python-version: ${{matrix.python-version}}
       - name: Install Project
-        run: pip install .[test]
+        run: pip install '.[test]'
       - name: Look for style errors
         run: pflake8
+      - name: Check for importing style
+        run: isort -m 3 --check --dif dundie tests integration
   tests:
     needs: lint
     strategy:
@@ -42,6 +44,6 @@ jobs:
         with:
           python-version: ${{matrix.python-version}}
       - name: Install Project
-        run: pip install .[test]
+        run: pip install '.[test]'
       - name: Run Tests
         run: pytest -vv tests integration

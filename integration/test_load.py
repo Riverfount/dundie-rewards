@@ -1,7 +1,7 @@
-from click.testing import CliRunner
-from dundie.cli import main, load
 import pytest
+from click.testing import CliRunner
 
+from dundie.cli import load, main
 from integration.constants import PEOPLE_FILE
 
 cmd = CliRunner()
@@ -12,7 +12,7 @@ cmd = CliRunner()
 def test_postive_load():
     """Test command load."""
     out = cmd.invoke(load, PEOPLE_FILE)
-    assert 'Dunder Mifflin Associantes' in out.output
+    assert 'Dunder Mifflin Associates' in out.output
 
 
 @pytest.mark.parametrize('wrong_command', ['loady', 'carrega', 'start'])

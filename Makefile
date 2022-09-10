@@ -9,7 +9,7 @@ help: ## This help.
 .DEFAULT_GOAL := help
 
 install:  ## Install in development mode.
-	@.venv/bin/python -m pip install -e .[dev]
+	@.venv/bin/python -m pip install -e .[test,dev]
 
 venv:  ## Create a virtualenv if it doesn't exists.
 	python -m venv .venv
@@ -22,7 +22,11 @@ test:  ## Execute all tests.
 	@.venv/bin/pytest
 
 lint:  ## Execute a lint to code quality.
+	# @.venv/bin/mypy --ignore-missing-imports dundie
 	@.venv/bin/pflake8
+
+fmt:  ## Format our imports with isort
+	@.venv/bin/isort -m 3 dundie tests integration
 
 clean:  ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
@@ -44,3 +48,9 @@ build:
 
 publish-test:
 	@twine upload --repository testpypi dist/*
+
+docs:  ## Build our documentaition
+	@mkdocs build --clean
+
+docs-serve:  ## Starts our documentation server
+	@mkdocs serve
